@@ -7,9 +7,9 @@ from cocotb.triggers import ClockCycles, Timer
 
 
 async def wait_clock_and_settle(dut, cycles=1):
-    """Wait for clock edges and allow nonblocking assignments to settle."""
+    """Wait for clock edges and allow the gate-level circuit to settle."""
     await ClockCycles(dut.clk, cycles)
-    await Timer(1, unit="ns")
+    await Timer(100, unit="ns")
 
 
 @cocotb.test()
